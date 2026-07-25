@@ -24,7 +24,7 @@ threading.Thread(target=run_dummy_server, daemon=True).start()
 # 2. ТЕЛЕГРАМ БОТ ЛОГИКА
 # ==========================================
 
-# Токенът се взема от Render Environment Variables
+# Токенът се чете САМО от Environment Variables в Render
 TOKEN = os.environ.get("BOT_TOKEN")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -37,11 +37,8 @@ def main():
         
     print("Стартиране на бота...")
     app = ApplicationBuilder().token(TOKEN).build()
-    
     app.add_handler(CommandHandler("start", start))
-    
     app.run_polling()
 
 if __name__ == "__main__":
-    main()\
-    
+    main()
