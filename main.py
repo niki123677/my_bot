@@ -24,12 +24,17 @@ threading.Thread(target=run_dummy_server, daemon=True).start()
 # 2. ТЕЛЕГРАМ БОТ ЛОГИКА
 # ==========================================
 
-TOKEN = "8903055363:AAEKwwKR1Lb1qG74pyyA_MzlIyXyEa2yHtQ"
+# Токенът се взема от Render Environment Variables
+TOKEN = os.environ.get("BOT_TOKEN")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Здравей! Аз съм твоят бот и вече работя 24/7 в Render!")
 
 def main():
+    if not TOKEN:
+        print("ГРЕШКА: BOT_TOKEN липсва в Environment Variables!")
+        return
+        
     print("Стартиране на бота...")
     app = ApplicationBuilder().token(TOKEN).build()
     
@@ -38,4 +43,5 @@ def main():
     app.run_polling()
 
 if __name__ == "__main__":
-    main()
+    main()\
+    
