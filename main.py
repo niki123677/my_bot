@@ -24,7 +24,7 @@ threading.Thread(target=run_dummy_server, daemon=True).start()
 # 2. ТЕЛЕГРАМ БОТ ЛОГИКА
 # ==========================================
 
-TOKEN = "7945532556:AAFdQ_W_U2fAtC0XbC6S9uF9I5dF89k_M84"
+TOKEN = "8903055363:AAEKwwKR1Lb1qG74pyyA_MzlIyXyEa2yHtQ"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Здравей! Аз съм твоят бот и вече работя 24/7 в Render!")
